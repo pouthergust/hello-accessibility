@@ -1,0 +1,32 @@
+<!-- [attr.aria-label]="label" -->
+<div
+  appKm
+  role="radiogroup"
+  [attr.aria-labelledby]="id"
+  class="btn-group">
+  <label [attr.id]="id" class="label"> {{ label }} </label>
+  <button
+    appKmItem
+    role="radio"
+    type="btn"
+    class="btn btn-yes"
+    [attr.tabindex]="value === options.yes || value === '' ? 0 : -1"
+    [attr.aria-checked]="value === options.yes"
+    [class.btn-pressed]="value === options.yes"
+    (click)="activate(options.yes)"
+    >
+    Yes
+  </button>
+  <button
+    appKmItem
+    role="radio"
+    type="btn"
+    class="btn btn-no"
+    [attr.tabindex]="value === options.no || value === '' ? 0 : -1"
+    [attr.aria-checked]="value === options.no"
+    [class.btn-pressed]="value === options.no"
+    (click)="activate(options.no)"
+    >
+    No
+  </button>
+</div>
