@@ -1,5 +1,37 @@
-<!-- [attr.aria-label]="label" -->
 <div
+  class="btn-group"
+  role="radiogroup"
+  [attr.aria-label]="label"
+  >
+  <label> {{ label }} </label>
+  <div class="radio">
+    <input
+      [attr.id]="id + '-yes'"
+      type="radio"
+      [attr.name]="id"
+      [attr.checked]="value === options.yes"
+      (change)="activate(options.yes)"
+      >
+      <label [attr.for]="id + '-yes'" class="btn btn-yes">
+        yes
+      </label>
+  </div>
+  <div class="radio">
+    <input
+      [attr.id]="id + '-no'"
+      type="radio"
+      [attr.name]="id"
+      [attr.checked]="value === options.no"
+      (change)="activate(options.no)"
+      >
+      <label [attr.for]="id + '-no'" class="btn btn-no">
+        No
+      </label>
+  </div>
+</div>
+
+<!-- [attr.aria-label]="label" -->
+<!-- <div
   appKm
   role="radiogroup"
   [attr.aria-labelledby]="id"
@@ -10,9 +42,11 @@
     role="radio"
     type="btn"
     class="btn btn-yes"
+    [attr.disabled]="disabled ? disabled : null"
     [attr.tabindex]="value === options.yes || value === '' ? 0 : -1"
     [attr.aria-checked]="value === options.yes"
     [class.btn-pressed]="value === options.yes"
+    (focused)="activate(options.yes)"
     (click)="activate(options.yes)"
     >
     Yes
@@ -22,11 +56,13 @@
     role="radio"
     type="btn"
     class="btn btn-no"
+    [attr.disabled]="disabled ? disabled : null"
     [attr.tabindex]="value === options.no || value === '' ? 0 : -1"
     [attr.aria-checked]="value === options.no"
     [class.btn-pressed]="value === options.no"
+    (focused)="activate(options.no)"
     (click)="activate(options.no)"
     >
     No
   </button>
-</div>
+</div> -->

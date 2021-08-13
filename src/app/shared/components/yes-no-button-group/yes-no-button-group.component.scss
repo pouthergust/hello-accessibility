@@ -27,3 +27,33 @@ $btn-pressed-bg: #0fc7ff;
     }
   }
 }
+
+.btn-group {
+  .radio {
+    position: relative;
+    display: inline-block;
+    input {
+      opacity: 0; /*
+
+      SÃO IGNORADOS PELO FOCO DO TAB
+      -----------------------------
+      display: none;
+      visibility: hidden; */
+
+      position: absolute;
+      // top: 25%;
+      left: 25%;
+      &:focus + label {
+        outline: solid 1px #272c3f;
+      }
+
+      &:checked + label {
+        @extend .btn-pressed
+      }
+
+      label {
+        display: block;
+      }
+    }
+  }
+}

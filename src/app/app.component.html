@@ -5,6 +5,7 @@
       <!-- (valueChange)="yesNoAnswer = $event" -->
       <!-- [(value)]="yesNoAnswer" -->
       <app-yes-no-button-group
+        [appDisableControl]="false"
         label="Are you good enough in Angular?"
         formControlName="yesNoAnswer"
       ></app-yes-no-button-group>
