@@ -1,3 +1,4 @@
+import { ModalRef } from './../../components/models/modal-ref';
 import { ComponentFactory, ComponentFactoryResolver, ComponentRef, Injectable, Injector, TemplateRef } from '@angular/core';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { ModalConfig } from '../../interfaces/modal-config';
@@ -24,7 +25,9 @@ export class ModalService {
       componentRef.instance.config = config
       console.log('Open called')
       this.bodyInjector.stackBeforeAppRoot(componentRef)
-      return new ModalRef(componentRef)
+      const modalRef = new ModalRef(componentRef)
+      componentRef.instance.modalRef = modalRef
+      return modalRef
     }
 
     private createComponentRef(): ComponentRef<ModalComponent> {
@@ -32,14 +35,4 @@ export class ModalService {
     }
 }
 
-export class ModalRef {
 
-  constructor (
-    private componentRef: ComponentRef<ModalComponent>
-  ){ }
-
-  public close(): void {
-    console.log('Close called')
-    this.componentRef.destroy()
-  }
-}

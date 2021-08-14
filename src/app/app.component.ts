@@ -1,6 +1,8 @@
-import { ModalRef, ModalService } from './shared/services/modal/modal.service';
+
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ModalRef } from './shared/components/models/modal-ref';
+import { ModalService } from './shared/services/modal/modal.service';
 
 @Component({
   selector: 'app-root',
