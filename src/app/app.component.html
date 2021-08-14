@@ -1,10 +1,45 @@
-<main>
+<h1>Componente Modal Acessivel</h1>
+
+<p>Bem-vindo a pagina de testes do modal acessivel</p>
+<button
+  class="btn btn-primary"
+  type="button"
+  (click)="show()"
+  >Mostrar modal</button>
+
+<ng-template #modal>
+  <div class="form-field">
+    <label for="firstName">Nome</label>
+    <input type="text" id="firstName" [(ngModel)]="firstName">
+  </div>
+
+  <div class="form-field">
+    <label for="surname">Sobrenome</label>
+    <input type="text" id="surname">
+  </div>
+
+  <div class="form-field">
+    <label for="age">Idade</label>
+    <input type="text" id="age">
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary">Enviar</button>
+    <button
+      type="button"
+      class="btn btn-secundary"
+      (click)="modalRef.close()"
+      >Cancelar</button>
+  </div>
+</ng-template>
+
+<!-- <main>
   <h1>Form</h1>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
+  <form [formGroup]="form" (ngSubmit)="submit()"> -->
       <!-- (valueChange)="yesNoAnswer = $event" -->
       <!-- [(value)]="yesNoAnswer" -->
-      <app-yes-no-button-group
+<!--       <app-yes-no-button-group
         [appDisableControl]="false"
         label="Are you good enough in Angular?"
         formControlName="yesNoAnswer"
@@ -12,3 +47,4 @@
       <button>Submit</button>
   </form>
 </main>
+ -->
