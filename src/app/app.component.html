@@ -8,29 +8,43 @@
   >Mostrar modal</button>
 
 <ng-template #modal>
-  <div class="form-field">
-    <label for="firstName">Nome</label>
-    <input type="text" id="firstName" [(ngModel)]="firstName">
-  </div>
+  <form [formGroup]="formModal" (ngSubmit)="submit()">
+    <div class="form-field">
+      <label for="firstName">Nome</label>
+      <input type="text" id="firstName" formControlName="firstName">
+      <span class="validation-error">
 
-  <div class="form-field">
-    <label for="surname">Sobrenome</label>
-    <input type="text" id="surname">
-  </div>
+      </span>
+    </div>
 
-  <div class="form-field">
-    <label for="age">Idade</label>
-    <input type="text" id="age">
-  </div>
+    <div class="form-field">
+      <label for="surname">Sobrenome</label>
+      <input type="text" id="surname" formControlName="surname">
+    </div>
 
-  <div class="btn-group">
-    <button type="button" class="btn btn-primary">Enviar</button>
-    <button
-      type="button"
-      class="btn btn-secundary"
-      (click)="modalRef.close()"
-      >Cancelar</button>
-  </div>
+    <div class="form-field">
+      <label for="age">Idade</label>
+      <input type="text" id="age" formControlName="age">
+    </div>
+
+    <label for="info">Desejo receber noticias</label>
+    <input
+      formControlName="info"
+      type="checkbox"
+      name="info"
+      id="info"
+     (change)="info = !info">
+    <p *ngIf="info">Inscrição confirmada!</p>
+
+    <div class="btn-group">
+      <button type="submit" class="btn btn-primary" [attr.aria-disabled]="formModal.invalid">Enviar</button>
+      <button
+        type="button"
+        class="btn btn-secundary"
+        (click)="modalRef.close()"
+        >Cancelar</button>
+    </div>
+  </form>
 </ng-template>
 
 <!-- <main>
