@@ -11,20 +11,53 @@
   <form [formGroup]="formModal" (ngSubmit)="submit()">
     <div class="form-field">
       <label for="firstName">Nome</label>
-      <input type="text" id="firstName" formControlName="firstName">
-      <span class="validation-error">
-
+      <input
+        type="text"
+        id="firstName"
+        aria-describedby="firstName-error"
+        [attr.aria-invalid]="formModal.get('firstName')?.invalid"
+        formControlName="firstName">
+      <span
+        id="firstName-error"
+        class="validation-error"
+        *ngIf="formModal.get('firstName')?.errors?.required"
+        >
+      Nome é obrigatório
       </span>
     </div>
 
     <div class="form-field">
       <label for="surname">Sobrenome</label>
-      <input type="text" id="surname" formControlName="surname">
+      <input
+        type="text"
+        id="surname"
+        aria-describedby="surname-error"
+        [attr.aria-invalid]="formModal.get('surname')?.invalid"
+        formControlName="surname">
+      <span
+        id="surname-error"
+        class="validation-error"
+        *ngIf="formModal.get('surname')?.errors?.required"
+        >
+      Sobrenome é obrigatório
+      </span>
     </div>
 
     <div class="form-field">
       <label for="age">Idade</label>
-      <input type="text" id="age" formControlName="age">
+      <input
+        type="text"
+        id="age"
+        aria-describedby="age-error"
+        formControlName="age">
+      <span
+        id="age-error"
+        class="validation-error"
+        [attr.aria-invalid]="formModal.get('age')?.invalid"
+        *ngIf="formModal.get('age')?.errors?.required"
+        >
+      Idade é obrigatória
+      </span>
     </div>
 
     <label for="info">Desejo receber noticias</label>
